@@ -8,10 +8,8 @@ if [[ ${#tmp[@]} -gt 1 ]] ; then
         if [[ $branch =~ ^$selSym ]]; then
             selected=${branch//$selSym/}
             echo "Current Branch: $selected"
-        else
-            if [[ $branch =~ $1 ]]; then
+        elif [[ ${branch^^} =~ ${1^^} ]]; then
                 tmp2+=($branch)
-            fi
         fi
     done
     echo "Select New Branch To Switch:"
